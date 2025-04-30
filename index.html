@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <title>Light Scheduler</title>
+          <style>
+               body { font-family: Arial; padding: 20px; }
+               label, input { display: block; margin: 10px 0; }
+          </style>
+     </head>
+     <body>
+          <h2>Light Scheduler</h2>
+          <label>ON Time: <input type="time" id="onTime"></label>
+          <label>OFF Time: <input type="time" id="offTime"></label>
+          <button onclick="sendSchedule()">Submit Schedule</button>
+
+          <script>
+               const ws = new WebSocket("ws://localhost:8765");
+
+               function sendSchedule() {
+                    const onTime = document.getElementById("onTime").value;
+                    const offTime = document.getElementById("offTime").value;
+                    ws.send(JSON.stringify({ on: onTime, off: offTime }));
+                    alert("Schedule sent!");
+               }
+          </script>
+     </body>
+</html>
