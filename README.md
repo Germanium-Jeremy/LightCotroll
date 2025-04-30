@@ -28,6 +28,10 @@ For running the client or subscriber script
 py subscriber.js
 ```
 
+# Frontend
+
+Open the html file with live server and test the program. Make sure you have you embedded setup ready.
+
 # Empasis
 
 Make sure to set 'COM4' to '/dev/ttyUSB0' in subscriber.py if you are using linux.
